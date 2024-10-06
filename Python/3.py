@@ -66,6 +66,20 @@ class Solution(object):
         :type num: int
         :rtype: str
         """
+        num=int(input("enter a number:"))
+        def function_roman(i,n):
+            if i==4:
+                if n==3:
+                    str.append("CD")
+                elif n==2:
+                    str.append("XL")
+                elif n==1:
+                    str.append("IV")
+                
+
+
+
+
         
         
         
