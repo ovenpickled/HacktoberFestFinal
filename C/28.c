@@ -27,7 +27,36 @@
 
 // 1 <= k <= jobs.length <= 12
 // 1 <= jobs[i] <= 107
+#include<stdio.h>
 
 int minimumTimeRequired(int* jobs, int jobsSize, int k) {
-    
+    int i=0, count=0, max=jobs[0];
+    int avgJobTime;
+    for(i=0; i<jobsSize; i++){
+        count=count+jobs[i];
+        if(jobs[i]>max){
+            max=jobs[i];
+        }
+    }
+    avgJobTime=count/k;
+    if(avgJobTime<=max){
+        printf("Max Time: %d",avgJobTime+1);
+    }
+    else{
+        printf("Max Time: %d",avgJobTime);
+    }
+}
+
+int main(){
+    int jobs[100], jobsSize, k, i=0;
+    printf("Enter The Size Of Array: ");
+    scanf("%d",&jobsSize);
+    printf("Enter The Jobs Time Array: ");
+    for(i=0; i<jobsSize; i++){
+        printf("Enter %d Job Time: ",i+1);
+        scanf("%d",&jobs[i]);
+    }
+    printf("Enter The Number Of Workers: ");
+    scanf("%d",&k);
+    minimumTimeRequired(jobs, jobsSize, k);
 }
