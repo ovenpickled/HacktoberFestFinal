@@ -27,7 +27,40 @@
 // n == height.length
 // 2 <= n <= 105
 // 0 <= height[i] <= 10^4
+#include <stdio.h>
 
 int maxArea(int* height, int heightSize) {
+    int max_area = 0;
+    int left = 0;
+    int right = heightSize - 1;
+
+    while (left < right) {
+        
+        int current_height = (height[left] < height[right]) ? height[left] : height[right];
+        int current_width = right - left;
+        int current_area = current_height * current_width;
+
+        
+        if (current_area > max_area) {
+            max_area = current_area;
+        }
+
+
+        if (height[left] < height[right]) {
+            left++;
+        } else {
+            right--;
+        }
+    }
+
+    return max_area;
+}
+
+int main()
+{
+    int height[] = {1,8,6,2,5,4,8,3,7};
+    int size = (sizeof(height)/sizeof(height[0]));
+    int results = maxArea(height,size);
+    printf("output is %d", results);
     
 }
