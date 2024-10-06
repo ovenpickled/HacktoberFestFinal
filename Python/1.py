@@ -3,7 +3,7 @@ Given a 0-indexed integer array nums, return true if it can be made strictly inc
 
 The array nums is strictly increasing if nums[i - 1] < nums[i] for each index (1 <= i < nums.length).
 
- 
+
 
 Example 1:
 
@@ -27,19 +27,28 @@ Input: nums = [1,1,1]
 Output: false
 Explanation: The result of removing any element is [1,1].
 [1,1] is not strictly increasing, so return false.
- 
+
 
 Constraints:
 
 2 <= nums.length <= 1000
-1 <= nums[i] <= 1000
- 
+1 <= nums[i] <= 1000'''
 
-'''
-class Solution(object):
-    def canBeIncreasing(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: bool
-        """
+def Increasing(nums):
+        temp = 0
+        for i in range(len(nums)-1):
+            if nums[i]>nums[i+1] and nums[i+1]:
+                temp+=1
+            if i+2<len(nums) and nums[i-1]>=nums[i+2]:
+                if i+2<len(nums) and nums[i]>=nums[i+2]:
+                    return False
+        return temp<=1
+
+nums = []
+an= int(input("enter how many values?"))
+for i in range(an):
+    b = int (input("Enter Value: "))
+    nums.append(b)
+result = Increasing(nums)
+print(result)
         
